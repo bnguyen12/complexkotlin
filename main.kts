@@ -5,8 +5,19 @@ println("UW Complex Kotlin homework")
 // use fold to compress the array of strings down into a single string
 // the final string should look like FIZZBUZZFIZZFIZZBUZZFIZZFIZZBUZZ
 //
-val mapFoldResults = ""
-
+val mapFoldResults = (1..15).filter{
+    it % 3 == 0 || it % 5 == 0
+}
+.map { value -> 
+    if (value % 3 == 0 && value % 5 == 0) {
+        "FIZZBUZZ"
+    } else if (value % 3 == 0) {
+        "FIZZ"
+    } else {
+        "BUZZ"
+    }
+}
+.fold("", {word, next -> "${word}" + "${next}"})
 
 // This is a utility function for your use as you choose, and as an
 // example of an extension method
@@ -42,7 +53,7 @@ class Command(val prompt: String) {
 
 // ================================
 println("map fold test: " + if (mapFoldResults == "FIZZBUZZFIZZFIZZBUZZFIZZFIZZBUZZ") "." else "!")
-
+/* 
 println("r1 test: " + if (r1 == ">>> FOO: {BAR}") "." else "!")
 
 println("r2 test: " + if (r2 == ">>> FOO: {WOOGAWOOGAWOOGA}") "." else "!")
@@ -64,4 +75,4 @@ print(if (Command("> ")("Hello!") == "> Hello!") "." else "!")
 println("")
 
 
-
+*/
