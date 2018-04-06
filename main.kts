@@ -31,7 +31,15 @@ fun Int.times(block: () -> Unit): Unit {
 fun process(message: String, block: (String) -> String): String {
     return ">>> ${message}: {" + block(message) + "}"
 }
-val r1 = "" // call process() with message "FOO" and a block that returns "BAR"
+val r1 = process("FOO",
+    { message: String ->
+        if (message == "FOO") {
+            "BAR"
+        } else {
+            "WRONG"
+        }
+    }
+) // call process() with message "FOO" and a block that returns "BAR"
 
 val r2_message = "wooga"
 val r2 = "" // call process() with message "FOO" and a block that upper-cases 
@@ -53,9 +61,9 @@ class Command(val prompt: String) {
 
 // ================================
 println("map fold test: " + if (mapFoldResults == "FIZZBUZZFIZZFIZZBUZZFIZZFIZZBUZZ") "." else "!")
-/* 
-println("r1 test: " + if (r1 == ">>> FOO: {BAR}") "." else "!")
 
+println("r1 test: " + if (r1 == ">>> FOO: {BAR}") "." else "!")
+/* 
 println("r2 test: " + if (r2 == ">>> FOO: {WOOGAWOOGAWOOGA}") "." else "!")
 
 var seneca = Philosopher.THINKING
