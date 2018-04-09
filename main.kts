@@ -81,6 +81,13 @@ class Command(val prompt: String) {
     }
 }
 
+/* EXTRA CREDIT:
+    1) Seneca the Younger was a Roman philosopher, statesman, dramatist, and satirist. His plays 
+       were all categorized as tragedies, and his essays dealt with moral issues.
+    2) He is most often associated with the School of Stoicism.
+    3) The School of Stoicism is a way of life by being pragmatic to overcome destructive emotions.
+*/
+
 // ================================
 println("map fold test: " + if (mapFoldResults == "FIZZBUZZFIZZFIZZBUZZFIZZFIZZBUZZ") "." else "!")
 
